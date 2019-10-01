@@ -12,8 +12,10 @@
   <!-- CSS Libraries -->
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('assets/css/components.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">  
 </head>
 
 <body>
