@@ -424,6 +424,7 @@ body.layout-3 {
         }
         &:hover {
           background-color: color_lighten(light, 6.5%);
+          color: color(primary);
         }
       }
       &.active {
