@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "bootstrap-social": "^5.1.1",
         "vue-ios-alertview": "^1.1.2"
     }
 }

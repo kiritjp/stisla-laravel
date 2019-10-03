@@ -3,28 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <title>Login &mdash; TILA Case Prep</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <!-- Template CSS -->
-  {{-- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> --}}
-  <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}">
+  
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">  
+  <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">  
 </head>
 
 <body>
   <div id="app">
     <section class="section">
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-            <div class="login-brand">
-              <img src="{{ asset('assets/img/stisla-fill.svg') }}" alt="logo" width="100" class="shadow-light rounded-circle">
-            </div>
+      <div class="d-flex flex-wrap align-items-stretch">
+        <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+          <div class="p-4 m-3">            
+            <img src="{{ asset('assets/img/stisla-fill.svg') }}" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
             @if(session()->has('info'))
             <div class="alert alert-primary">
                 {{ session()->get('info') }}
@@ -36,8 +33,24 @@
             </div>
             @endif
             @yield('content')
-            <div class="simple-footer">
-              Copyright &copy; {{ env('APP_NAME') }} {{ date('Y') }}
+            <div class="text-center mt-5 text-small">
+              Copyright {{ date('Y') }} &copy; {{ config('app.name') }} 
+              <div class="mt-2">
+                <a href="#">Privacy Policy</a>
+                <div class="bullet"></div>
+                <a href="#">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="../assets/img/unsplash/login-bg.jpg">
+          <div class="absolute-bottom-left index-2">
+            <div class="text-light p-5 pb-2">
+              <div class="mb-5 pb-3">
+                <h1 class="mb-2 display-4 font-weight-bold" id="greeting">Good Morning</h1>
+                <h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+              </div>
+              Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
             </div>
           </div>
         </div>
@@ -58,6 +71,9 @@
   <!-- Template JS File -->
   <script src="{{ asset('assets/js/scripts.js') }}"></script>
   <script src="{{ asset('assets/js/custom.js') }}"></script>
+  <script>
+      var time = new Date().getHours(); document.getElementById('greeting').innerHTML = time < 12 ? 'Good Morning' : time < 17 ? 'Good Afternoon' : time < 20 ? 'Good Evening' : 'You\'re up late...';
+  </script>
 
   <!-- Page Specific JS File -->
 </body>
