@@ -3457,8 +3457,9 @@ pre {
   border: none;
   position: relative;
   margin-bottom: 30px;
-  padding: 20px;
+  padding: 20px 20px 20px 33px;
   display: flex;
+  border-radius: 0px;
   align-items: center;
 }
 
@@ -4178,8 +4179,8 @@ body.layout-3 .main-footer {
 }
 
 .main-content {
-  padding-left: 280px;
-  padding-right: 30px;
+  padding-left: 250px;
+  padding-right: 0px;
   padding-top: 80px;
   width: 100%;
   position: relative;

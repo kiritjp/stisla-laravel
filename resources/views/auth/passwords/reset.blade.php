@@ -1,6 +1,7 @@
 @extends('layouts.auth-master')
 
 @section('content')
+<h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">TILA Case Prep</span></h4>
 <div class="card card-primary">
   <div class="card-header"><h4>Set a New Password</h4></div>
 

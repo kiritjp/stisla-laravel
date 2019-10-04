@@ -7,8 +7,9 @@
   .section-header {
     @include shadow;
     @include card-base;
-    padding: 20px;
+    padding: 20px 20px 20px 33px;
     display: flex;
+    border-radius: 0px;
     align-items: center;
     h1 {
       margin-bottom: 0;
