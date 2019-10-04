@@ -3460,6 +3460,7 @@ pre {
   padding: 20px 20px 20px 33px;
   display: flex;
   border-radius: 0px;
+  margin-bottom: 0px;
   align-items: center;
 }
 
