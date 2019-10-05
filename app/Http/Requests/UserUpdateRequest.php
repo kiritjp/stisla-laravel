@@ -31,7 +31,7 @@ class UserUpdateRequest extends FormRequest
             'password' => 'nullable|min:5|confirmed'
         ];
 
-        if(!Auth::user()->can('edit-users'))
+        if(!Auth::user()->can('login-super-admin'))
         {
             $rules['current_password'] = 'required';
         } else {
@@ -43,7 +43,7 @@ class UserUpdateRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        if(!Auth::user()->can('edit-users'))
+        if(!Auth::user()->can('login-super-admin'))
         {
             $validator->after(function ($validator) {
                 if(!Hash::check($this->current_password, $this->user->password))

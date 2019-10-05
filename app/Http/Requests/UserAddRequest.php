@@ -13,7 +13,7 @@ class UserAddRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check() && Auth::user()->can('create-users');
+        return Auth::check() && Auth::user()->can('login-super-admin');
     }
 
     /**

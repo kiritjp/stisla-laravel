@@ -29,6 +29,7 @@ class UserController extends Controller
             if($request->q)
             {
                 $users = $users->where('name', 'like', '%'.$request->q.'%')->orWhere('email', $request->q);
+
             }
             $users = $users->paginate(config('stisla.perpage'))->appends(['q' => $request->q]);
             return response()->json($users);
@@ -105,7 +106,7 @@ class UserController extends Controller
                 $user->update(['password' => Hash::make($request->password)]);
             }
 
-            if($request->role && $request->user()->can('edit-users') && !$user->isme)
+            if($request->role && $request->user()->can('login-super-admin') && !$user->isme)
             {
                 $role = Role::find($request->role);
                 if($role)

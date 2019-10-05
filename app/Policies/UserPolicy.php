@@ -18,12 +18,12 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        $user->can('view-users');
+        $user->can('login-super-admin');
     }
 
     public function index(User $user)
     {
-        return $user->can('view-users');
+        return $user->can('login-super-admin');
     }
 
     /**
@@ -34,7 +34,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create-users');
+        return $user->can('login-super-admin');
     }
 
     /**
@@ -46,7 +46,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        return $user->can('edit-users') || $user->id == $model->id;
+        return $user->can('login-super-admin') || $user->id == $model->id;
     }
 
     /**
@@ -58,7 +58,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        return $user->can('delete-users') && $user->id !== $model->id;
+        return $user->can('login-super-admin') && $user->id !== $model->id;
     }
 
     /**

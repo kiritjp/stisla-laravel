@@ -1,11 +1,11 @@
 <template>
-<div class="row" v-if="$parent.userCan('manage-users')">
+<div class="row" v-if="$parent.userCan('login-super-admin')">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h4>Users <span v-if="total">({{ total }})</span></h4>
                 <div class="card-header-action">
-                    <a v-if="$parent.userCan('create-users')" v-bind:href="$parent.MakeUrl('admin/users/create')" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
+                    <a v-if="$parent.userCan('login-super-admin')" v-bind:href="$parent.MakeUrl('admin/users/create')" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
                 </div>
             </div>
             <div class="card-body p-0">
@@ -16,17 +16,19 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Reg. Date</th>
+                                <th>Role</th>
                                 <th></th>
                             </tr>
                             <tr v-for="user, index in users">
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.created_at }}</td>
+                                <td>{{ user.roles[0].name }}</td>
                                 <td class="text-right">
-                                    <button v-if="$parent.userCan('delete-users') && !user.isme" @click="deleteUser(user.id, index)" class="btn btn-danger">
+                                    <button v-if="$parent.userCan('modify-super-admin') && !user.isme" @click="deleteUser(user.id, index)" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </button>
-                                    <a v-if="$parent.userCan('edit-users')" v-bind:href="user.profilelink" class="btn btn-primary">
+                                    <a v-if="$parent.userCan('modify-super-admin')" v-bind:href="user.profilelink" class="btn btn-primary">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>

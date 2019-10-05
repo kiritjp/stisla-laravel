@@ -2057,6 +2057,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38260,7 +38262,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm.$parent.userCan("edit-users") && !_vm.getUserdata("isme")
+          _vm.$parent.userCan("login-super-admin") && !_vm.getUserdata("isme")
             ? _c("div", { staticClass: "form-group row mb-4" }, [
                 _c(
                   "label",
@@ -38318,7 +38320,7 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          !_vm.$parent.userCan("edit-users")
+          !_vm.$parent.userCan("login-super-admin")
             ? _c("div", { staticClass: "form-group row mb-4" }, [
                 _c(
                   "label",
@@ -38517,7 +38519,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.$parent.userCan("manage-users")
+  return _vm.$parent.userCan("login-super-admin")
     ? _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "card" }, [
@@ -38530,7 +38532,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-header-action" }, [
-                _vm.$parent.userCan("create-users")
+                _vm.$parent.userCan("login-super-admin")
                   ? _c(
                       "a",
                       {
@@ -38563,8 +38565,12 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(user.created_at))]),
                                   _vm._v(" "),
+                                  _c("td", [
+                                    _vm._v(_vm._s(user.roles[0].name))
+                                  ]),
+                                  _vm._v(" "),
                                   _c("td", { staticClass: "text-right" }, [
-                                    _vm.$parent.userCan("delete-users") &&
+                                    _vm.$parent.userCan("modify-super-admin") &&
                                     !user.isme
                                       ? _c(
                                           "button",
@@ -38587,7 +38593,7 @@ var render = function() {
                                         )
                                       : _vm._e(),
                                     _vm._v(" "),
-                                    _vm.$parent.userCan("edit-users")
+                                    _vm.$parent.userCan("modify-super-admin")
                                       ? _c(
                                           "a",
                                           {
@@ -38669,6 +38675,8 @@ var staticRenderFns = [
       _c("th", [_vm._v("Email")]),
       _vm._v(" "),
       _c("th", [_vm._v("Reg. Date")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Role")]),
       _vm._v(" "),
       _c("th")
     ])
