@@ -25,7 +25,7 @@
                                 <td>{{ user.created_at }}</td>
                                 <td>{{ user.roles[0].name }}</td>
                                 <td class="text-right">
-                                    <button v-if="$parent.userCan('modify-super-admin') && !user.isme" @click="deleteUser(user.id, index)" class="btn btn-danger">
+                                    <button v-if="$parent.userCan('modify-super-admin') && !user.isme" v-bind:id="'swal-' + index" @click="deleteUser(user.id, index)" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                     <a v-if="$parent.userCan('modify-super-admin')" v-bind:href="user.profilelink" class="btn btn-primary">
@@ -88,22 +88,31 @@ export default {
         },
         deleteUser(userId, index) {
             let _this = this;
-            this.$iosConfirm({
-                title: 'Are you sure?',
-                text: 'The user and their associated data will be permanently deleted. Proceed?'
-            }).then(function() {
-                axios.delete(_this.$parent.MakeUrl('admin/users/'+userId)).then((res) => {
-                    _this.users.splice(index, 1);
-                    _this.total = _this.total - 1;
-                    _this.loadUsers();
-                }).catch(error => {
-                    _this.$iosAlert({
-                        'title': 'Error',
-                        'text': error.response.data.message
+
+            swal({
+                title:'Are you sure?',
+                text: 'The user and their associated data will be permanently deleted. Proceed?',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(_this.$parent.MakeUrl('admin/users/'+userId)).then((res) => {
+                        _this.users.splice(index, 1);
+                        _this.total = _this.total - 1;
+                        _this.loadUsers();
+                    }).catch(error => {
+                        _this.$iosAlert({
+                            'title': 'Error',
+                            'text': error.response.data.message
+                        });
                     });
-                });
+                }else{
+                    swal('Data is not deleted!');
+                }
             });
         }
     }
+
 }
 </script>

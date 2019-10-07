@@ -4,7 +4,7 @@
 
   <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">TILA Case Prep</span></h4>
   <p class="text-muted">Before you get started, you must login.</p>
-  
+
   <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
       @csrf
     <div class="form-group">
@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <div class="d-block">
-          <label for="password" class="control-label">Password</label>        
+          <label for="password" class="control-label">Password</label>
       </div>
       <input aria-describedby="passwordHelpBlock" id="password" type="password" placeholder="Your account password" class="form-control{{ $errors->has('password') ? ' is-invalid': '' }}" name="password" tabindex="2" required>
       <div class="invalid-feedback">
@@ -42,16 +42,16 @@
       </div>
     </div>
 
-    <div class="form-group text-right">      
+    <div class="form-group text-right">
       <a href="{{ route('password.request') }}" class="float-left mt-3">
         Forgot Password?
-      </a>      
+      </a>
       <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
         Login
       </button>
-    </div>    
+    </div>
   </form>
-  
+
 
 
 @endsection

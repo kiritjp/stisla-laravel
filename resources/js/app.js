@@ -3,7 +3,9 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import iosAlertView from 'vue-ios-alertview';
+import swal from 'sweetalert';
 Vue.use(iosAlertView);
+
 
 import UsersComponent from './components/UsersComponent';
 import ProfileComponent from './components/ProfileComponent';
