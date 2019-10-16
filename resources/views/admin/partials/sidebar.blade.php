@@ -1,6 +1,6 @@
 <aside id="sidebar-wrapper">
   <div class="sidebar-brand">
-    <a href="{{ route('admin.dashboard') }}">{{ config('app.name') }}</a>
+    <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/img/tila-logo.svg') }}" alt="logo" width="140" class=""></a>
   </div>
   <div class="sidebar-brand sidebar-brand-sm">
     <a href="index.html">TCP</a>
